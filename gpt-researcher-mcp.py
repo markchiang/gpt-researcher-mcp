@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from mcp.server.fastmcp import FastMCP
 from gpt_researcher import GPTResearcher
 import asyncio
@@ -34,3 +35,6 @@ async def get_report(query: str, report_type: str = "research_report") -> str:
 def echo_prompt(message: str) -> str:
     """Create an echo prompt"""
     return f"Please write an news article for this topic: {message}"
+
+if __name__ == "__main__":
+    mcp.run()

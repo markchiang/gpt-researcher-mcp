@@ -40,31 +40,38 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 <details>
   <summary>Development/Unpublished Servers Configuration</summary>
   ```
-  "mcpServers": {
     "gpt-researcher-mcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/home/markchiang/projects/gpt-researcher-mcp",
-        "run",
-        "gpt-researcher-mcp"
-      ]
+      "command": "npx",
+      "args": ["-y", "gpt-researcher-mcp"],
+      "env": {
+        "llm_provider": "google_genai",
+        "GOOGLE_API_KEY": "your key",
+        "FAST_LLM": "google_genai:gemini-1.5-flash",
+        "SMART_LLM": "google_genai:gemini-1.5-pro",
+        "STRATEGIC_LLM":"google_genai:gemini-1.5-pro",
+        "EMBEDDING": "google_genai:models/text-embedding-004",
+        "TAVILY_API_KEY": "your key"
+      }
     }
-  }
   ```
 </details>
 
 <details>
   <summary>Published Servers Configuration</summary>
   ```
-  "mcpServers": {
     "gpt-researcher-mcp": {
-      "command": "uvx",
-      "args": [
-        "gpt-researcher-mcp"
-      ]
+      "command": "npx",
+      "args": ["-y", "gpt-researcher-mcp"],
+      "env": {
+        "llm_provider": "google_genai",
+        "GOOGLE_API_KEY": "your key",
+        "FAST_LLM": "google_genai:gemini-1.5-flash",
+        "SMART_LLM": "google_genai:gemini-1.5-pro",
+        "STRATEGIC_LLM":"google_genai:gemini-1.5-pro",
+        "EMBEDDING": "google_genai:models/text-embedding-004",
+        "TAVILY_API_KEY": "your key"
+      }
     }
-  }
   ```
 </details>
 

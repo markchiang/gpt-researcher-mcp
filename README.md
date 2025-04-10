@@ -1,32 +1,14 @@
 # gpt-researcher-mcp MCP server
 
-A MCP server project
+A MCP server for gpt-researcher
 
-## Components
+This is just a MCP wrapper for gpt-researcher.
 
-### Resources
+This project, gpt-researcher-mcp, is a wrapper extension built on top of the open-source project gpt-researcher.
+The original gpt-researcher was developed by Assaf Elovic, and I am not the original author.
 
-The server implements a simple note storage system with:
-- Custom note:// URI scheme for accessing individual notes
-- Each note resource has a name, description and text/plain mimetype
-
-### Prompts
-
-The server provides a single prompt:
-- summarize-notes: Creates summaries of all stored notes
-  - Optional "style" argument to control detail level (brief/detailed)
-  - Generates prompt combining all current notes with style preference
-
-### Tools
-
-The server implements one tool:
-- add-note: Adds a new note to the server
-  - Takes "name" and "content" as required string arguments
-  - Updates server state and notifies clients of resource changes
-
-## Configuration
-
-[TODO: Add configuration details specific to your implementation]
+gpt-researcher is an automated research assistant that performs web searches, summarizes information, and generates structured reports based on a given query.
+This wrapper (gpt-researcher-mcp) is designed to make the original tool more suitable for integration into MCP or similar workflows.
 
 ## Quickstart
 
@@ -37,8 +19,6 @@ The server implements one tool:
 On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
 On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 
-<details>
-  <summary>Development/Unpublished Servers Configuration</summary>
   ```
     "gpt-researcher-mcp": {
       "command": "npx",
@@ -54,29 +34,9 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
       }
     }
   ```
-</details>
-
-<details>
-  <summary>Published Servers Configuration</summary>
-  ```
-    "gpt-researcher-mcp": {
-      "command": "npx",
-      "args": ["-y", "gpt-researcher-mcp"],
-      "env": {
-        "llm_provider": "google_genai",
-        "GOOGLE_API_KEY": "your key",
-        "FAST_LLM": "google_genai:gemini-1.5-flash",
-        "SMART_LLM": "google_genai:gemini-1.5-pro",
-        "STRATEGIC_LLM":"google_genai:gemini-1.5-pro",
-        "EMBEDDING": "google_genai:models/text-embedding-004",
-        "TAVILY_API_KEY": "your key"
-      }
-    }
-  ```
-</details>
 
 ## Development
-
+<details>
 ### Building and Publishing
 
 To prepare the package for distribution:
@@ -111,8 +71,8 @@ experience, we strongly recommend using the [MCP Inspector](https://github.com/m
 You can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:
 
 ```bash
-npx @modelcontextprotocol/inspector uv --directory /home/markchiang/projects/gpt-researcher-mcp run gpt-researcher-mcp
+npx @modelcontextprotocol/inspector uv run gpt-researcher-mcp
 ```
 
-
 Upon launching, the Inspector will display a URL that you can access in your browser to begin debugging.
+</details>
